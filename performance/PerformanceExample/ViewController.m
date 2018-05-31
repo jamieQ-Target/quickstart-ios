@@ -25,8 +25,21 @@
 
 @implementation ViewController
 
+
+- (void)pushViewController
+{
+    ViewController *vc = [ViewController new];
+    [self.navigationController pushViewController:vc animated:true];
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
+
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Push"
+                                                                            style:UIBarButtonItemStylePlain
+                                                                           target:self
+                                                                           action:@selector(pushViewController)];
+  self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 
   NSArray *paths = NSSearchPathForDirectoriesInDomains
   (NSDocumentDirectory, NSUserDomainMask, YES);
